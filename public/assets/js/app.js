@@ -14,7 +14,7 @@ $(".delete").on("click",function(){
   console.log("this id "+thisId);
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
-    method: "POST",
+    method: "GET",
     url: "/delete/" + thisId,
     data: {
       id: thisId

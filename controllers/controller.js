@@ -63,18 +63,15 @@ router.get("/scrape", function (req, res) {
     });
 });
 //2) DELETE ARTICLES WE DON'T WANT
-router.post("/delete/:id", function (req, res) {
+router.get("/delete/:id", function (req, res) {
     console.log("delete path hit in controller")
     // Create a new note and pass the req.body to the entry
-    db.Article.remove( {"_id": req.params.id})
-        .then(function (dbArticle) {
-            // If we were able to successfully update an Article, send it back to the client
-            res.json(dbArticle);
-        })
-        .catch(function (err) {
-            // If an error occurred, send it to the client
-            res.json(err);
-        });
+    db.Article.findOneAndRemove({
+        _id: req.params.id
+    }).then(function (data) {
+        res.json(data)
+      });
+
 });
 
 // router.get("/scrape", function (req, res) {
@@ -94,7 +91,7 @@ router.post("/delete/:id", function (req, res) {
 // });
 
 
-//2) Get all Articles from the mongodb THIS IS NOT WORKING
+//2) Get all Articles from the mongodb 
 router.get("/", function (req, res) {
     // Grab every document in the "Article" collection: "Article" is what works
     db.Article.find()
