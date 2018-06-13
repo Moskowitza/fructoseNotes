@@ -65,12 +65,13 @@ router.get("/scrape", function (req, res) {
 
 router.get("/articles", function (req, res) {
     // Grab every document in the "Article" collection: "Article" is what works
+    console.log("getting all the new articles from the display button")
     db.Article.find()
         .then(function (data) {
             var hbsObject = {
                 articles: data
             }
-            res.render("scrape", hbsObject);
+            res.render("scrape",hbsObject);
         })
         // If we were able to successfully find Articles, send them back to the client
         .catch(function (err) {
