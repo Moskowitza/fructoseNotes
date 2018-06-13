@@ -42,47 +42,48 @@ router.get("/scrape", function (req, res) {
 
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
-                //find all the scraped articles
                 .catch(function (err) {
                     // If an error occurred, send it to the client
                     return res.json(err);
                 })
-                .then(
-                    db.Article.find()
-                        .then(function (data) {
-                            var hbsObject = {
-                                articles: data
-                            }
-                        res.render("scrape", hbsObject);
-                        })
-                )
-        });
-    })
+            })
+router.get("/scrape", function (req, res) {
+            db.Article.find()
+                .then(function (result) {
+                    var hbsObject = {
+                        articles: result
+                    }
+                    res.render("scrape", hbsObject);
+                })
 
-    // If we were able to successfully scrape and save an Article, send a message to the client
+            // //find all the scraped articles
+        })
+        // If we were able to successfully scrape and save an Article, send a message to the client
+    });
 });
+
+
+//2) Get all Articles from the mongodb THIS IS NOT WORKING
+router.get("/", function (req, res) {
+    // Grab every document in the "Article" collection: "Article" is what works
+    db.Article.find()
+        .then(function (data) {
+            var hbsObject = {
+                articles: data
+            }
+            res.render("index", hbsObject);
+        })
+        // If we were able to successfully find Articles, send them back to the client
+
+
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+
+});
+
 module.exports = router;
-
-// //2) Get all Articles from the mongodb THIS IS NOT WORKING
-// router.get("/", function (req, res) {
-//     // Grab every document in the "Article" collection: "Article" is what works
-//     db.Article.find()
-//         .then(function (data) {
-//             var hbsObject = {
-//                 articles: data
-//             }
-//             res.render("index", hbsObject);
-//         })
-//         // If we were able to successfully find Articles, send them back to the client
-
-
-//         .catch(function (err) {
-//             // If an error occurred, send it to the client
-//             res.json(err);
-//         });
-
-// });
-
 // //3) Get a specific Article by id AND populate it with it's note
 // router.get("/articles/:id", function (req, res) {
 //     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
