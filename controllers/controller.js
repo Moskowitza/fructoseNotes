@@ -45,13 +45,13 @@ router.get("/scrape", function (req, res) {
                 .then(function (dbArticle) {
                     // View the added result in the console
                     console.log(dbArticle);
+                    res.render("scrape", dbArticle);
                 })
                 .catch(function (err) {
                     // If an error occurred, send it to the client
                     return res.json(err);
                 });
-        });
-
+        })
         // If we were able to successfully scrape and save an Article, send a message to the client
         db.Article.find()
             .then(function (data) {
@@ -66,7 +66,8 @@ router.get("/scrape", function (req, res) {
 router.get("/delete/:id", function (req, res) {
     console.log("delete path hit in controller")
     // This DOES work, but how do we get it to update the page?
-    db.Article.findOneAndRemove({ _id: req.params.id }).then(function(result){
+    db.Article.findOneAndRemove({ _id: req.params.id })
+    .then(function(result){
         return console.log("deleted "+result)
     });
     db.Article.find()
