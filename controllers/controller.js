@@ -44,19 +44,17 @@ router.get("/scrape", function (req, res) {
             db.Article.create(result)
                 .catch(function (err) {
                     // If an error occurred, send it to the client
-                    return res.json(err);
+                    return res.send(err);
                 })
-            })
-router.get("/scrape", function (req, res) {
+                .then(function(){
             db.Article.find()
                 .then(function (result) {
                     var hbsObject = {
                         articles: result
                     }
-                    res.render("scrape", hbsObject);
+                    res.render("scrape",hbsObject);
                 })
-
-            // //find all the scraped articles
+            })
         })
         // If we were able to successfully scrape and save an Article, send a message to the client
     });
