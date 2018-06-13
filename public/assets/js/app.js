@@ -35,5 +35,16 @@ $(".delete").on("click", function () {
     });
 
   // Also, remove the values entered in the input and textarea for note entry
-
+$(".addNote").on("click",function(){
+        // Populate the Note div
+        $("#notes").append("<h2>" + data.title + "</h2>");
+         // The image of the article
+         $("#notes").append("<img src="+"'"+ data.imgLink+"'"+ "alt='img not found>");
+        // An input to enter a new title
+        $("#notes").append("<input id='titleinput' name='title' >");
+        // A textarea to add a new note body
+        $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+        // A button to submit a new note, with the id of the article saved to it
+        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+})
 });

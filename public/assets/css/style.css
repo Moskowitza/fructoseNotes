@@ -1,3 +1,9 @@
 h1 {
 background: pink
 };
+
+div {
+    background: lightblue;
+    padding: 10pt;
+    margin: 10pt;
+}

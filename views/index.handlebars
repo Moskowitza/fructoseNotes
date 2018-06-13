@@ -1,4 +1,19 @@
-{{!-- This is the home page --}}
-{{!-- Show my articles --}}
+{{!-- This is the home page --}} {{!-- Show my articles --}}
 <h1>index page</h1>
 <button id="scrape">New Scrape</button>
+<div id="indexArticles">My Articles
+    {{#each articles}}
+    <li data-id={{this._id}}>
+      {{this.title}}
+    </li>
+    <a href="{{this.link}}">link</a>
+    <button class="addNote" data-id="{{this.id}}">Add Note</button>
+    {{/each}}
+</div>
+<div id="indexNotes">Notes
+{{#each notes}}
+<li data-id={{this._id}}>
+{{this.title}}
+</li>
+{{/each}}
+</div>
