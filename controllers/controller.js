@@ -38,20 +38,22 @@ router.get("/scrape", function (req, res) {
                 .find("div.entry-content")
                 .find("img")
                 .attr("src");
-
-            // Create a new Article using the `result` object built from scraping
+            // Create 1 new Article using the `result` object built from scraping
             db.Article.create(result)
                 .then(function (dbArticle) {
                     // View the added result in the console
                     console.log(dbArticle);
-                   
+                    var hbsObject={
+                        articles: dbArticle
+                    }
+                    res.json(result)
                 })
                 .catch(function (err) {
                     // If an error occurred, send it to the client
                     return res.json(err);
                 })
         });
-    })
+    });
 });
 
 router.get("/articles", function (req, res) {
