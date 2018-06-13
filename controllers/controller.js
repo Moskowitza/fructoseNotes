@@ -65,12 +65,17 @@ router.get("/scrape", function (req, res) {
 //2) DELETE ARTICLES WE DON'T WANT
 router.get("/delete/:id", function (req, res) {
     console.log("delete path hit in controller")
-    // Create a new note and pass the req.body to the entry
-    db.Article.findOneAndRemove({
-        _id: req.params.id
-    }).then(function (data) {
-        res.json(data)
-      });
+    // This DOES work, but how do we get it to update the page?
+    db.Article.findOneAndRemove({ _id: req.params.id }).then(function(result){
+        return console.log("deleted "+result)
+    });
+    db.Article.find()
+        .then(function (data) {
+            var hbsObject = {
+                articles: data
+            }
+            res.json(hbsObject);
+        })
 
 });
 

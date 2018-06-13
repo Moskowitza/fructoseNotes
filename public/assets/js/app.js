@@ -24,6 +24,7 @@ $(".delete").on("click",function(){
     .then(function(data) {
       // Log the response
       console.log(data);
+      location.reload();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
