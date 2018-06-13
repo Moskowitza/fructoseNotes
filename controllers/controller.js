@@ -42,23 +42,41 @@ router.get("/scrape", function (req, res) {
 
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
+                .then(function (dbArticle) {
+                    // View the added result in the console
+                    console.log(dbArticle);
+                })
                 .catch(function (err) {
                     // If an error occurred, send it to the client
-                    return res.send(err);
-                })
-                .then(function(){
-            db.Article.find()
-                .then(function (result) {
-                    var hbsObject = {
-                        articles: result
-                    }
-                    res.render("scrape",hbsObject);
-                })
-            })
-        })
+                    return res.json(err);
+                });
+        });
+
         // If we were able to successfully scrape and save an Article, send a message to the client
+        db.Article.find()
+        .then(function (data) {
+            var hbsObject = {
+                articles: data
+            }
+            res.render("scrape", hbsObject);
+        })
     });
 });
+// router.get("/scrape", function (req, res) {
+//     // Grab every document in the "Article" collection: "Article" is what works
+//     db.Article.find()
+//         .then(function (data) {
+//             var hbsObject = {
+//                 articles: data
+//             }
+//             res.render("scrape", hbsObject);
+//         })
+//         // If we were able to successfully find Articles, send them back to the client
+//         .catch(function (err) {
+//             // If an error occurred, send it to the client
+//             res.json(err);
+//         });
+// });
 
 
 //2) Get all Articles from the mongodb THIS IS NOT WORKING
