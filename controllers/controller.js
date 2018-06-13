@@ -54,14 +54,29 @@ router.get("/scrape", function (req, res) {
 
         // If we were able to successfully scrape and save an Article, send a message to the client
         db.Article.find()
-        .then(function (data) {
-            var hbsObject = {
-                articles: data
-            }
-            res.render("scrape", hbsObject);
-        })
+            .then(function (data) {
+                var hbsObject = {
+                    articles: data
+                }
+                res.render("scrape", hbsObject);
+            })
     });
 });
+//2) DELETE ARTICLES WE DON'T WANT
+router.post("/delete/:id", function (req, res) {
+    console.log("delete path hit in controller")
+    // Create a new note and pass the req.body to the entry
+    db.Article.remove( {"_id": req.params.id})
+        .then(function (dbArticle) {
+            // If we were able to successfully update an Article, send it back to the client
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
+
 // router.get("/scrape", function (req, res) {
 //     // Grab every document in the "Article" collection: "Article" is what works
 //     db.Article.find()
@@ -99,7 +114,7 @@ router.get("/", function (req, res) {
 
 });
 
-module.exports = router;
+
 // //3) Get a specific Article by id AND populate it with it's note
 // router.get("/articles/:id", function (req, res) {
 //     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
@@ -143,3 +158,4 @@ module.exports = router;
 //         });
 
 // });
+module.exports = router;
