@@ -1,0 +1,13 @@
+<h2>New Articles from HiFructose!</h2>
+<div id="articles">
+  <ul>
+    {{#each articles}}
+    <li data-id={{this._id}}>
+      {{this.title}}
+    </li>
+    <a href="{{this.link}}">link</a>
+    <button class="addNote" data-id="{{this.id}}">Add Note</button>
+    {{/each}}
+
+  </ul>
+</div>
