@@ -1,10 +1,9 @@
 console.log("app.js has loaded")
 // Execute the scrape
 $("#scrape").on("click", function () {
-
-  window.location = "./scrape"
-
+  window.location = "./scrape";
 });
+
 // Return Home
 $("#home").on("click", function () {
   window.location = "./";
