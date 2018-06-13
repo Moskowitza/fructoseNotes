@@ -53,13 +53,13 @@ router.get("/scrape", function (req, res) {
                 });
         })
         // If we were able to successfully scrape and save an Article, send a message to the client
-        db.Article.find()
-            .then(function (data) {
-                var hbsObject = {
-                    articles: data
-                }
-                res.render("scrape", hbsObject);
-            })
+        // db.Article.find()
+        //     .then(function (data) {
+        //         var hbsObject = {
+        //             articles: data
+        //         }
+        //         res.render("scrape", hbsObject);
+        //     })
     });
 });
 //2) DELETE ARTICLES WE DON'T WANT
