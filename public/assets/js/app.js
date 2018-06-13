@@ -1,9 +1,15 @@
 console.log("app.js has loaded")
-// Execute the scrape
+// Execute the scrape by going to the scape page
 $("#scrape").on("click", function () {
   window.location = "./scrape";
 });
 
+$("#display").on("click", function () {
+  $.ajax({
+    method: "GET",
+    url: "/articles/"
+  });
+});
 // Return Home
 $("#home").on("click", function () {
   window.location = "./";
@@ -25,7 +31,9 @@ $(".delete").on("click", function () {
     .then(function (data) {
       // Log the response
       console.log(data);
-      // reload the page with new data
       location.reload();
     });
+
+  // Also, remove the values entered in the input and textarea for note entry
+
 });
