@@ -14,7 +14,7 @@ $(".addNote").on("click", function () {
   $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
-
+  console.log("thisId "+thisId)
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
