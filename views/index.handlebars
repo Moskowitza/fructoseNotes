@@ -7,26 +7,37 @@
 
 <div class="row">
     {{!-- Show my articles --}}
-    <div id="indexArticles" class="col s6">
+    <div id="indexArticles">
         {{!-- For every article in the DB --}}
-        <ul>
-            {{#each articles}}
-            <li data-id={{this._id}}>
-                {{this.title}}
-                <a href="{{this.link}}">Link</a>
-                <button class="addNote" data-id="{{this.id}}">Add Note</button>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-
-    <div id="indexNotes" class="col s6">
-        <ul>
-            {{#each notes}}
-            <li data-id={{this._id}}>
-                {{this.title}}
-            </li>
-            {{/each}}
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Picture</th>
+                    <th>link</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each articles}}
+                <tr data-id={{this._id}}>
+                    <td>
+                        {{this.title}}
+                    </td>
+                    <td>
+                        <img src={{this.imgLink}}>
+                    </td>
+                    <td>
+                        <a href="{{this.link}}">Link</a>
+                    </td>
+                    <td>
+                        <button class="addNote" data-id="{{this.id}}">Add Note</button>
+                        <button class="delete" data-id="{{this.id}}">Remove</button>
+                    </td>
+                    <td id="indexNotes"></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>

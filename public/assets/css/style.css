@@ -4,10 +4,13 @@ background: pink
 
 div {
     background: lightblue;
-    padding: 10pt;
-    margin: 10pt;
+    padding: 10px;
+    margin: 10px;
 }
 
 #indexNotes {
     background: hotpink;
+}
+img {
+    width: 300px;
 }
