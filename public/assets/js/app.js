@@ -1,40 +1,16 @@
 console.log("app.js has loaded")
-// Execute the scrape by going to the scape page
+// Execute the scrape when passed
 $("#scrape").on("click", function () {
-  window.location = "./scrape";
-});
-
-$("#display").on("click", function () {
   $.ajax({
     method: "GET",
-    url: "/articles/"
-  });
-});
+    url: "/scrape/"
+  });});
 
 
-// Delete an Article
-$(".delete").on("click", function () {
-  // Grab the id associated with the article from the submit button
-  var thisId = $(this).attr("data-id");
-  console.log("this id " + thisId);
-  // Run a POST request to change the note, using what's entered in the inputs
-  $.ajax({
-    method: "GET",
-    url: "/delete/" + thisId,
-    data: {
-      id: thisId
-    }
-  })
-    // With that done
-    .then(function (data) {
-      // Log the response
-      console.log(data);
-      location.reload();
-    });
-})
 // Also, remove the values entered in the input and textarea for note entry
-$(document).on("click", "li", function () {
+$(".addNote").on("click", function () {
   // Empty the notes from the note section
+  console.log("addnote clicked")
   $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
@@ -96,3 +72,24 @@ $(document).on("click", "#savenote", function () {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+// Delete an Article
+$(".delete").on("click", function () {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+  console.log("this id " + thisId);
+  // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "GET",
+    url: "/delete/" + thisId,
+    data: {
+      id: thisId
+    }
+  })
+    // With that done
+    .then(function (data) {
+      // Log the response
+      console.log(data);
+      location.reload();
+    });
+})
