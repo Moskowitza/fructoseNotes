@@ -54,7 +54,7 @@ router.get("/scrape", function (req, res) {
 });
 
 //1) get all articles
-router.get("/articles", function (req, res) {
+router.get("/", function (req, res) {
     // Grab every document in the "Article" collection: "Article" is what works
     console.log("getting all the new articles from the display button")
     db.Article.find()
