@@ -32,14 +32,14 @@ $(".addNote").on("click", function () {
       // A textarea to add a new note body
       $("#indexNotes").append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
-      $("#indexNotes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#indexNotes").append("<button data-id='" + data.notes._id + "' id='savenote'>Save Note</button>");
 
       // If there's a note in the article
-      if (data.note) {
+      if (data.notes) {
         // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
+        $("#titleinput").val(data.notes.title);
         // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        $("#bodyinput").val(data.notes.body);
       }
     });
 });
