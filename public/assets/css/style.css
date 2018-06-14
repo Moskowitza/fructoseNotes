@@ -5,18 +5,14 @@ text-align: center;
 color: blueviolet;
 }
 
-div {
+#articles {
     background: lightblue;
-    padding: 10px;
-    margin: 10px;
 }
 
-#indexNotes {
+#notes {
     background: hotpink;
 }
 img {
     width: 300px;
 }
-td {
-    width:10%;
-}
+

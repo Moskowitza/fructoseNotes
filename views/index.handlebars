@@ -1,45 +1,52 @@
 {{!-- This is the home page --}}
 
-
-
-<button id="scrape">New Scrape</button>
-
+<header><h1>HiFructose Scrape</h1></header>
 <div class="row">
-    {{!-- Show my articles --}}
-    <div id="indexArticles">
-        {{!-- For every article in the DB --}}
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Picture</th>
-                    <th>link</th>
-                    <th>action</th>
-                    <th>notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each articles}}
-                <tr data-id={{this._id}}>
-                    <td>
-                        {{this.title}}
-                    </td>
-                    <td>
-                        <img src={{this.imgLink}}>
-                    </td>
-                    <td>
-                        <a href="{{this.link}}">Link</a>
-                    </td>
-                    <td>
-                        <button class="addNote" data-id="{{this.id}}">Add Note</button>
-                        <button class="delete" data-id="{{this.id}}">Remove</button>
-                    </td>
-                    <td id={{this.notes._id}}>
-                    
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+    <button id="scrape">New Scrape</button>
+</div>
+
+<div class="container">
+    <div class="row">
+        {{!-- Show my articles --}}
+        <div id="articles" class="col l6">
+            {{!-- For every article in the DB --}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Picture</th>
+                        <th>link</th>
+                        <th>action</th>
+                        <th>notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each articles}}
+                    <tr data-id={{this._id}}>
+                        <td>
+                            {{this.title}}
+                        </td>
+                        <td>
+                            <img src={{this.imgLink}}>
+                        </td>
+                        <td>
+                            <a href="{{this.link}}">Link</a>
+                        </td>
+                        <td>
+                            <button class="addNote" data-id="{{this.id}}">Add Note</button>
+                            <button class="delete" data-id="{{this.id}}">Remove</button>
+                        </td>
+                        {{!--
+                        <td id={{this.notes._id}}>
+
+                        </td> --}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div id="notes" class="col l6">
+            note
+        </div>
     </div>
 </div>
