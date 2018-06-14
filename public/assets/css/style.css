@@ -1,5 +1,8 @@
 h1 {
-background: pink
+font-family: 'Titan One', cursive;
+background: pink;
+text-align: center;
+color: blueviolet;
 }
 
 div {
@@ -13,4 +16,7 @@ div {
 }
 img {
     width: 300px;
+}
+td {
+    width:10%;
 }

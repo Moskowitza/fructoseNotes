@@ -2,7 +2,6 @@
 
 
 
-<h1>index page</h1>
 <button id="scrape">New Scrape</button>
 
 <div class="row">
@@ -16,6 +15,7 @@
                     <th>Picture</th>
                     <th>link</th>
                     <th>action</th>
+                    <th>notes</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,9 @@
                         <button class="addNote" data-id="{{this.id}}">Add Note</button>
                         <button class="delete" data-id="{{this.id}}">Remove</button>
                     </td>
-                    <td id="indexNotes"></td>
+                    <td id={{this.notes._id}}>
+                    
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>

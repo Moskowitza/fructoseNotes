@@ -24,15 +24,15 @@ $(".addNote").on("click", function () {
     .then(function (data) {
       console.log(data);
       // The title of the article
-      $("#indexNotes").append("<h2>" + data.notes.title + "</h2>");
+      $('"#'+data.notes._id+'"').append("<h2> Title"  + data.notes.title + "</h2>");
       // The image of the article
-      $("#indexNotes").append("<img src=" + "'" + data.notes.imgLink + "'" + "alt='img not found>");
+      $('"#'+data.notes._id+'"').append("<img src=" + "'" + data.notes.imgLink + "'" + "alt='img not found>");
       // An input to enter a new title
-      $("#indexNotes").append("<input id='titleinput' name='title' >");
+      $('"#'+data.notes._id+'"').append("<input id='titleinput' name='title' >input");
       // A textarea to add a new note body
-      $("#indexNotes").append("<textarea id='bodyinput' name='body'></textarea>");
+      $('"#'+data.notes._id+'"').append("<textarea id='bodyinput' name='body'>textarea</textarea>");
       // A button to submit a new note, with the id of the article saved to it
-      $("#indexNotes").append("<button data-id='" + data.notes._id + "' id='savenote'>Save Note</button>");
+      $('"#'+data.notes._id+'"').append("<button data-id='" + data.notes._id + "' id='savenote'>Save Note</button>");
 
       // If there's a note in the article
       if (data.notes) {
