@@ -6,4 +6,9 @@ div {
     background: lightblue;
     padding: 10pt;
     margin: 10pt;
+};
+
+#indexNotes {
+    float: right;
+    background: hotpink;
 }
