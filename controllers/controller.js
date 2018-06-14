@@ -102,6 +102,8 @@ router.get("/articles/:id", function (req, res) {
             }
             // If we were able to successfully find an Article with the given id, send it back to the client
             res.send(hbsNotes);
+            var parsed = JSON.stringify(hbsNotes)
+            console.log("hbsNotes : "+ parsed)
         })
         .catch(function (err) {
             // If an error occurred, send it to the client

@@ -24,9 +24,9 @@ $(".addNote").on("click", function () {
     .then(function (data) {
       console.log(data);
       // The title of the article
-      $("#indexNotes").append("<h2>" + this.title + "</h2>");
+      $("#indexNotes").append("<h2>" + notes.title + "</h2>");
       // The image of the article
-      $("#indexNotes").append("<img src=" + "'" + data.imgLink + "'" + "alt='img not found>");
+      $("#indexNotes").append("<img src=" + "'" + notes.imgLink + "'" + "alt='img not found>");
       // An input to enter a new title
       $("#indexNotes").append("<input id='titleinput' name='title' >");
       // A textarea to add a new note body
