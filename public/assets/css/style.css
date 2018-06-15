@@ -1,11 +1,5 @@
-h1 {
-font-family: 'Titan One', cursive;
-background: pink;
-text-align: center;
-color: blueviolet;
-}
-header {
-    position: 0;
+#font {
+    font-family: 'Titan One', cursive;
 }
 
 #articles {
