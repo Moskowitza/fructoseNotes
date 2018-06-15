@@ -4,6 +4,10 @@ $("#scrape").on("click", function () {
   $.ajax({
     method: "GET",
     url: "/scrape/"
+  })
+    .then(function (data) {
+      alert("New articles scraped")
+      location.reload();
   });
 });
 
@@ -15,7 +19,7 @@ $(".addNote").on("click", function () {
   $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
-  console.log("thisId "+thisId)
+  console.log("thisId " + thisId)
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
@@ -25,7 +29,7 @@ $(".addNote").on("click", function () {
     .then(function (data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2> Article : "  + data.title + "</h2>");
+      $("#notes").append("<h2> Article : " + data.title + "</h2>");
       // An input to enter a new title
       $("#notes").append("<input id='titleinput' name='title' >");
       // A textarea to add a new note body
