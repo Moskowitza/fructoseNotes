@@ -43,7 +43,6 @@ router.get("/scrape", function (req, res) {
                 .then(function (dbArticle) {
                     // View the added result in the console
                     console.log(dbArticle);
-                    alert("scrape complete")
                 })
                 .catch(function (err) {
                     // If an error occurred, send it to the client

@@ -3,18 +3,19 @@ html, body, h1, h2, h3, h4, h5, h6, div {
     border: 0;
     margin: 0;
   }
-  .top {
-    padding: 0;
-    height: 170px;
-    margin: 0px;
-  }
-#font {
+
+.font {
     font-family: 'Titan One', cursive;
+    padding: 0;
+    border: 0;
+    margin: 0;
 }
 header {
     font-family: 'Titan One', cursive;
     color: blueviolet;
     background: hotpink;
+    text-align: center;
+    font-size:10vw;
 }
 
 
