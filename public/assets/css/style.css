@@ -1,6 +1,22 @@
+html, body, h1, h2, h3, h4, h5, h6, div {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  .top {
+    padding: 0;
+    height: 170px;
+    margin: 0px;
+  }
 #font {
     font-family: 'Titan One', cursive;
 }
+header {
+    font-family: 'Titan One', cursive;
+    color: blueviolet;
+    background: hotpink;
+}
+
 
 #articles {
     background: lightblue;
