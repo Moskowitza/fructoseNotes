@@ -42,8 +42,10 @@
                             <button class="delete" data-id="{{this.id}}">Remove</button>
                         </td>
                         
-                        <td id={{this.notes._id}}>
-                            {{notes.title}}
+                        <td id={{this.note._id}}>
+                            {{#each this}}
+                            {{note.title}}
+                        {{/each}}
                         </td>
                     </tr>
                     {{/each}}
