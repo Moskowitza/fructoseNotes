@@ -18,6 +18,10 @@ header {
     font-size:10vw;
 }
 
+.container{
+    width: 100%;
+    max-width:initial;
+}
 
 #articles {
     background: lightblue;
