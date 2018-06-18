@@ -27,7 +27,6 @@
                     <tr>
                         <th>Title</th>
                         <th>Picture</th>
-                        <th>link</th>
                         <th>action</th>
                         <th>notes</th>
                         <th>input</th>
@@ -38,9 +37,8 @@
                     <tr data-id={{this._id}}>
                         <td>
                            <h4> {{this.title}}</h4>
-                        </td>
-                        <td>
-                            <img src={{this.imgLink}}>
+                           <img src={{this.imgLink}}>
+                           {{this.bodyText}}
                         </td>
                         <td>
                             <a href="{{this.link}}">Link</a>
