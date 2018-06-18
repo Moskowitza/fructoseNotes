@@ -23,6 +23,7 @@
                         <th>link</th>
                         <th>action</th>
                         <th>notes</th>
+                        <th>input</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,17 +45,19 @@
                         
                         <td>
                             {{#each note}}
-                            {{this.title}}
+                          <b>{{this.title}}</b>  
                             {{this.body}}
                             {{/each}}                    
                         </td>
+                        <td data-noteId={{this._id}}></td>
                     </tr>
+                    
                     {{/each}}
                 </tbody>
             </table>
         </div>
-        <div id="notes" class="col l6">
+        {{!-- <div id="notes" class="col l6">
             note
-        </div>
+        </div> --}}
     </div>
 </div>
