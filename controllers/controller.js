@@ -38,6 +38,11 @@ router.get("/scrape", function (req, res) {
                 .find("div.entry-content")
                 .find("img")
                 .attr("src");
+            result.bodyText = $(this)
+                .find("div.entry-content")
+                .find("p")
+                .nextAll()
+                .text();
             // Create 1 new Article using the `result` object built from scraping
             db.Article.create(result)
                 .then(function (dbArticle) {

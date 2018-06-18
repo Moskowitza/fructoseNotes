@@ -2,7 +2,7 @@ console.log("app.js has loaded")
 
 $(document).ready(function(){
   $('.modal').modal();
-  $('.sidenav').sidenav();
+  $('.sidenav-trigger').sidenav();
 });
 
 // Execute the scrape when passed
