@@ -139,6 +139,7 @@ router.get("/deleteNote/:id", function (req, res) {
     // This DOES work, but how do we get it to update the page?
     db.Note.findOneAndRemove({ _id: req.params.id })
         .then(function (result) {
+            res.json(result)
             return console.log("deleted " + result)
         });
 });

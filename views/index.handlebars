@@ -37,10 +37,10 @@
             <hr> 
             {{/each}}
         </div>
-        <div id="addNote" class="col l4" data-id={{this._id}}>
+        <div id="addNote_{{this._id}}" class="col l4" data-id={{this._id}}>
             <h6> {{this.title}} </h6>
-            <input class='titleinput_{{this._id}}' name='title'>
-            <textarea class='bodyinput_{{this._id}}' name='body'>textarea</textarea>
+            <input id='titleinput_{{this._id}}' name='title' placeholder="Note Title">
+            <textarea id='bodyinput_{{this._id}}' name='body' placeholder="Note Body"></textarea>
             <button data-id={{this._id}} class="savenote">Save Note</button>
         </div>
     </div>
