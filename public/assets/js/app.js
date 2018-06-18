@@ -1,10 +1,6 @@
 console.log("app.js has loaded")
 
 $(document).ready(function(){
-  $('.modal').modal();
-  $('.sidenav-trigger').sidenav();
-});
-
 // Execute the scrape when passed
 $("#scrape").on("click", function () {
   $.ajax({
@@ -87,4 +83,4 @@ $(".deleteNote").on("click", function () {
       location.reload();
     });
 })
-
+});
