@@ -2,7 +2,8 @@
 <nav>
     <div class="nav-wrapper">
         <a href="#!" id="font" class="brand-logo">Hello Fructose</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
             <li id="scrape">
@@ -18,59 +19,31 @@
     </div>
 </nav>
 <div class="container">
+    {{#each articles}}
     <div class="row">
-        {{!-- Show my articles --}}
-        <div id="articles" class="col l12">
-            {{!-- For every article in the DB --}}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Picture</th>
-                        <th>action</th>
-                        <th>notes</th>
-                        <th>input</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each articles}}
-                    <tr data-id={{this._id}}>
-                        <td>
-                           <h4> {{this.title}}</h4>
-                           <img src={{this.imgLink}}>
-                           {{this.bodyText}}
-                        </td>
-                        <td>
-                            <a href="{{this.link}}">Link</a>
-                        </td>
-                        <td>
-                            {{!-- <button class="addNote" data-id="{{this.id}}">Add Note</button> --}}
-                            <button class="delete" data-id="{{this.id}}">Remove Article</button>
-                        </td>
-
-                        <td>
-                            {{#each note}}
-                            <b>{{this.title}}</b>
-                            {{this.body}} 
-                            {{!-- Delete Button needs to be hooked up --}}
-                            <button class="deleteNote" data-id="{{this.id}}">Remove Note</button>
-                            <hr>
-                            {{/each}}
-                        </td>
-                        <td data-noteId={{this._id}}>
-                            <h6> {{this.title}} </h6>
-                            <input id='titleinput' name='title'>
-                            <textarea id='bodyinput' name='body'>textarea</textarea>
-                            <button data-id={{this._id}} id="savenote">Save Note</button>
-                        </td>
-                    </tr>
-
-                    {{/each}}
-                </tbody>
-            </table>
+        {{!-- Show my articles --}} {{!-- For every article in the DB --}}
+        <div id="articles" class="col l4" data-id={{this._id}}>
+            <h4> {{this.title}}</h4>
+            <img src={{this.imgLink}}> {{this.bodyText}}
+            <a href="{{this.link}}">Link</a>
+            <button class="delete" data-id="{{this.id}}">Remove Article</button>
         </div>
-        {{!-- <div id="notes" class="col l6">
-            note
-        </div> --}}
+        <div id="notes" class="col l4">
+            {{#each note}}
+            <b>{{this.title}}</b>
+            {{this.body}} {{!-- Delete Button needs to be hooked up --}}
+            <button class="deleteNote" data-id="{{this.id}}">Remove Note</button>
+            <hr> 
+            {{/each}}
+        </div>
+        <div id="addNote" class="col l4" data-id={{this._id}}>
+            <h6> {{this.title}} </h6>
+            <input id='titleinput' name='title'>
+            <textarea id='bodyinput' name='body'>textarea</textarea>
+            <button data-id={{this._id}} class="savenote">Save Note</button>
+        </div>
     </div>
+    <hr>
+    {{/each}}
+</div>
 </div>

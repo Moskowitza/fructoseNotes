@@ -38,7 +38,7 @@ router.get("/scrape", function (req, res) {
                 .find("div.entry-content")
                 .find("img")
                 .attr("src");
-                // there are two p tags, I think this works because the first only contains a link, this one has text
+                // there are two p tags, I think this works because the first only contains a link, this one has text. N
             result.bodyText = $(this)
                 .find("div.entry-content")
                 .find("p")
