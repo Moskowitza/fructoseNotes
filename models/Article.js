@@ -26,14 +26,19 @@ var ArticleSchema = new Schema({
   // `note` is an object that stores a Note _id
   // The ref property links the ObjectId to the Note model
   // This allows us to populate the Article with an associated Note
-  note: {
+  notes: [{
     type: Schema.Types.ObjectId,
     ref: "Note"
-  },
+  }],
   //lets add a time stamp
   timestamps: { 
     createdAt: 'created_at' 
+  },
+  updated: { 
+    type: Date, 
+    default: Date.now 
   }
+
 });
 
 // This creates our model from the above schema, using mongoose's model method

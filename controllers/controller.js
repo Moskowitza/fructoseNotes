@@ -57,7 +57,7 @@ router.get("/", function (req, res) {
     // Grab every document in the "Article" collection: "Article" is what works
     console.log("getting all the new articles from the display button")
     db.Article.find()
-    .populate("note")
+    .populate("notes")
         .then(function (data) {
             var hbsObject = {
                 articles: data
