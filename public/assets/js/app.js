@@ -18,7 +18,7 @@ $("#scrape").on("click", function () {
 });
 
 // When you click the savenote button
-$(document).on("click", ".savenote", function () {
+$(".savenote").on("click", function () {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
 
@@ -28,9 +28,9 @@ $(document).on("click", ".savenote", function () {
     url: "/articles/" + thisId,
     data: {
       // Value taken from title input
-      title: $("#titleinput").val(),
+      title: $(".titleinput").val(),
       // Value taken from note textarea
-      body: $("#bodyinput").val()
+      body: $(".bodyinput").val()
     }
   })
     // With that done
@@ -38,8 +38,8 @@ $(document).on("click", ".savenote", function () {
       // Log the response
       console.log(data);
       // Remove the values entered in the input and textarea for note entry
-      $("#titleinput").val("");
-      $("#bodyinput").val("");
+      $(".titleinput").val("");
+      $(".bodyinput").val("");
       location.reload();
     });
 
