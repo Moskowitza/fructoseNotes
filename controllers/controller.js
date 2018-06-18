@@ -71,7 +71,6 @@ router.get("/", function (req, res) {
         });
 });
 
-
 //2) DELETE ARTICLES WE DON'T WANT
 router.get("/delete/:id", function (req, res) {
     console.log("delete path hit in controller")
@@ -128,5 +127,14 @@ router.post("/articles/:id", function (req, res) {
             res.json(err);
         });
 
+});
+
+//5) DELETE NOTES WE DON'T WANT
+router.get("/deleteNote/:id", function (req, res) {
+    // This DOES work, but how do we get it to update the page?
+    db.Note.findOneAndRemove({ _id: req.params.id })
+        .then(function (result) {
+            return console.log("deleted " + result)
+        });
 });
 module.exports = router;

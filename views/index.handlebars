@@ -56,7 +56,8 @@
                             <b>{{this.title}}</b>
                             {{this.body}} 
                             {{!-- Delete Button needs to be hooked up --}}
-                            <button class="delete" data-id="{{this.id}}">Remove Article</button>
+                            <button class="deleteNote" data-id="{{this.id}}">Remove Note</button>
+                            <hr>
                             {{/each}}
                         </td>
                         <td data-noteId={{this._id}}>

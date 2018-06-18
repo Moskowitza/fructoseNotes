@@ -102,3 +102,25 @@ $(".delete").on("click", function () {
       location.reload();
     });
 })
+
+// Delete a NOTE
+$(".deleteNote").on("click", function () {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+  console.log("this id " + thisId);
+  // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "GET",
+    url: "/deleteNote/" + thisId,
+    data: {
+      id: thisId
+    }
+  })
+    // With that done
+    .then(function (data) {
+      // Log the response
+      console.log(data);
+      location.reload();
+    });
+})
+
