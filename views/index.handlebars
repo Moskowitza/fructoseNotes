@@ -32,14 +32,15 @@
             {{#each note}}
             <b>{{this.title}}</b>
             {{this.body}} {{!-- Delete Button needs to be hooked up --}}
+            <br>
             <button class="deleteNote" data-id="{{this.id}}">Remove Note</button>
             <hr> 
             {{/each}}
         </div>
         <div id="addNote" class="col l4" data-id={{this._id}}>
             <h6> {{this.title}} </h6>
-            <input class='titleinput' name='title'>
-            <textarea class='bodyinput' name='body'>textarea</textarea>
+            <input class='titleinput_{{this._id}}' name='title'>
+            <textarea class='bodyinput_{{this._id}}' name='body'>textarea</textarea>
             <button data-id={{this._id}} class="savenote">Save Note</button>
         </div>
     </div>
