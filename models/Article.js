@@ -29,15 +29,7 @@ var ArticleSchema = new Schema({
   note: [{
     type: Schema.Types.ObjectId,
     ref: "Note"
-  }],
-  //lets add a time stamp
-  timestamps: { 
-    createdAt: 'created_at' 
-  },
-  updated: { 
-    type: Date, 
-    default: Date.now 
-  }
+  }]
 
 });
 

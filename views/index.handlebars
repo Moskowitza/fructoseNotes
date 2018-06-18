@@ -43,9 +43,16 @@
                         </td>
                         
                         <td id={{this.note._id}}>
-                            {{#each this}}
+                            {{#each notes}}
+                            a)
+                            {{this.notes.title}}
+                            b)
                             {{note.title}}
-                        {{/each}}
+                            {{/each}}
+                            {{!-- this.note.ObjectId returns nothing --}}
+                            {{this.note.ObjectId}} 
+                            {{this.note.title}}
+                    
                         </td>
                     </tr>
                     {{/each}}
