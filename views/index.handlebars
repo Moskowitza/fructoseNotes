@@ -42,17 +42,11 @@
                             <button class="delete" data-id="{{this.id}}">Remove</button>
                         </td>
                         
-                        <td id={{this.note._id}}>
-                            {{#each notes}}
-                            a)
-                            {{this.notes.title}}
-                            b)
-                            {{note.title}}
-                            {{/each}}
-                            {{!-- this.note.ObjectId returns nothing --}}
-                            {{this.note.ObjectId}} 
-                            {{this.note.title}}
-                    
+                        <td>
+                            {{#each note}}
+                            {{this.title}}
+                            {{this.body}}
+                            {{/each}}                    
                         </td>
                     </tr>
                     {{/each}}
