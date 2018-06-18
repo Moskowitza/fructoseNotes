@@ -116,7 +116,7 @@ router.post("/articles/:id", function (req, res) {
             // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
             return db.Article.findOneAndUpdate(
                 { _id: req.params.id }, 
-                { note: dbNote._id }, 
+                {$push: { note: dbNote._id }}, 
                 { new: true });
         })
         .then(function (data) {
