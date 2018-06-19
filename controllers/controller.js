@@ -53,6 +53,7 @@ router.get("/scrape", function (req, res) {
             db.Article.create(result)
                 .then(function (dbArticle) {
                     // View the added result in the console
+                    res.end();
                     console.log(dbArticle);
                 })
                 .catch(function (err) {
