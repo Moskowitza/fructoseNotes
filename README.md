@@ -13,3 +13,4 @@ Notes are stored in a seperate table. An array holds their ids for "populating" 
 * Delete a Note
 * link to github
 * link to HiFructose homepage
+![screenGrab](readmegif/Screen Shot 2018-06-19 at 5.41.26 PM.png "Screen Grab")
