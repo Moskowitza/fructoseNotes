@@ -7,9 +7,9 @@ Scrape when you're ready for some new art to check out. I make use of the 'uniqu
 Notes are stored in a seperate table. An array holds their ids for "populating" the page.  
 
 ## Page Actions
-*Scrape
-*Add Notes
-*Delete an Article
-*Delete a Note
-*link to github
-*link to HiFructose homepage
+* Scrape
+* Add Notes
+* Delete an Article
+* Delete a Note
+* link to github
+* link to HiFructose homepage
