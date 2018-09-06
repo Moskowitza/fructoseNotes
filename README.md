@@ -1,5 +1,6 @@
 # fructoseNotes
 Scrape hifructose and add notes taking ability. This MVC stack is built on a handelbars template and uses the following techologies: Axios, Materilize, GoogleFonts, Mongoose, Cheerio, and (our lifeblood) EXPRESS!! 
+link: https://mighty-dawn-76073.herokuapp.com/
 
 ## The Scrape
 Scrape when you're ready for some new art to check out. I make use of the 'unique: true' key pair to avoid duplicate entries.  
