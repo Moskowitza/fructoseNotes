@@ -28,8 +28,12 @@ app.set("view engine", "handlebars");
 
 // Routes
 // var routes = require("./controllers/controller.js");
-var routes = require("./routes");
-app.use(routes)
+var articleRouter=require('./routes/api/articles')
+app.use('/',articleRouter);
+var scrapeRouter=require('./routes/api/scrape')
+app.use('/scrape',scrapeRouter);
+
+
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/hiFructose";
 
