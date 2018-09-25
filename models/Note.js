@@ -14,7 +14,9 @@ var NoteSchema = new Schema({
   // `body` is of type String
   body:{
     type: String,
-    required: true
+    required: true,
+    min:3,
+    max:100
   }
 });
 
