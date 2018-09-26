@@ -1,5 +1,5 @@
 var db = require('../models');
-
+var async = require('async');
 module.exports = {
   // Find all headlines, sort them by date, send them back to the user
   findAll: function (req, res, next) {
@@ -9,6 +9,30 @@ module.exports = {
         if (err) { return next(err); }
         res.render("index", { articles: dbArticle });
       });
+  },
+  delete_get: function(req,res,next){
+    async.parallel({
+      article: function(callback){
+        db.Article.findById(req.params.id).populate('note').exec(callback)
+      },
+      function(err,result){
+        if (err){return next(err);}
+        res.render('index',{message:'Delete this article and notes?'})
+      }
+    })
+  },
+  delete_post: function(req,res,next){
+    async.parallel({
+      article: function(callback){
+        db.Article.findById(req.params.id).populate('note').exec(callback)
+      },
+    }, function(err,results){
+      if (err){return next(err);}
+      db.Article.findByIdAndRemove(req.body.id),function deleteArtilce(err){
+        if (err){return next(err);}
+        res.redirect('/');
+      }
+    })
   },
   // Delete the specified headline
   delete: function (req, res) {

@@ -8,7 +8,7 @@ module.exports = {
     // scrape the NYT
     return scrape()
     .then(function(articles){
-      return db.Articles.create(articles);
+      return db.Article.create(articles);
     })
     .then(function(dbHeadline) {
       if (dbHeadline.length === 0) {
