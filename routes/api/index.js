@@ -1,10 +1,10 @@
 var router = require("express").Router();
-var fetchRoutes = require("./fetch");
+var scrapeRoutes = require("./scrape");
 var noteRoutes = require("./notes");
-var headlineRoutes = require("./headlines");
+var articleRoutes = require("./articles");
 
-router.use("/fetch", fetchRoutes);
+router.use("/scrape", scrapeRoutes);
 router.use("/notes", noteRoutes);
-router.use("/headlines", headlineRoutes);
+router.use("/", articleRoutes);
 
 module.exports = router;

@@ -1,5 +1,5 @@
-
 <div class="container">
+    {{message}}
     {{#each articles}}
     <div class="row">
         {{!-- Show my articles --}} {{!-- For every article in the DB --}}
@@ -7,15 +7,18 @@
             <h4> {{this.title}}</h4>
             <img src={{this.imgLink}}> {{this.bodyText}}
             <a href="{{this.link}}">Link</a>
-            <button class="delete" data-id="{{this.id}}">Remove Article</button>
+            <form action="" method="POST">
+                <input class="form-control" type="hidden" name='id' id='id' required="true" value={{this._id}}>
+                <button type="submit">Remove Article</button>
+            </form>
         </div>
         <div id="notes" class="col l4">
             {{#each note}}
             <b>{{this.title}}</b>
             {{this.body}} {{!-- Delete Button needs to be hooked up --}}
             <br>
-            <button class="deleteNote" data-id="{{this.id}}">Remove Note</button>
-            <hr> 
+            <button method='DELETE' action='' class="deleteNote" data-id="{{this.id}}">Remove Note</button>
+            <hr>
             {{/each}}
         </div>
         <div id="addNote_{{this._id}}" class="col l4" data-id={{this._id}}>

@@ -1,34 +1,33 @@
 // Controller for our scraper
 // ============================
 var db = require("../models");
-var scrape = require("../scrape.js");
+var scrape = require("../scrape");
 
 module.exports = {
-  scrapeHeadlines: function(req, res) {
+  scrapeHeadlines: function (req, res, next) {
     // scrape the NYT
     return scrape()
-      .then(function(articles) {
-        // then insert articles into the db
-        return db.Article.create(articles);
-      })
-      .then(function(dbArticle) {
-        if (dbArticle.length === 0) {
-          res.json({
-            message: "No new articles today. Check back tomorrow!"
-          });
-        }
-        else {
-          // Otherwise send back a count of how many new articles we got
-          res.json({
-            message: "Added " + dbArticle.length + " new articles!"
-          });
-        }
-      })
-      .catch(function(err) {
-        // This query won't insert articles with duplicate headlines, but it will error after inserting the others
-        res.json({
-          message: "Scrape complete!!"
+    .then(function(articles){
+      return db.Article.create(articles);
+    })
+    .then(function(dbHeadline) {
+      if (dbHeadline.length === 0) {
+        res.render("scrape",{
+          message: "No new articles today. Check back tomorrow!"
         });
+      }
+      else {
+        // Otherwise send back a count of how many new articles we got
+        res.render("scrape",{
+          message: "Added " + dbHeadline.length + " new articles!"
+        });
+      }
+    })
+    .catch(function(err) {
+      // This query won't insert articles with duplicate headlines, but it will error after inserting the others
+      res.render("scrape",{
+        message: "Scrape complete!!"
       });
+    });
   }
 };
