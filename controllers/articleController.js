@@ -22,17 +22,17 @@ module.exports = {
     })
   },
   delete_post: function(req,res,next){
-    async.parallel({
-      article: function(callback){
-        db.Article.findById(req.params.id).populate('note').exec(callback)
-      },
-    }, function(err,results){
-      if (err){return next(err);}
-      db.Article.findByIdAndRemove(req.body.id),function deleteArtilce(err){
+    // async.parallel({
+    //   article: function(callback){
+    //     db.Article.findById(req.params.id).populate('note').exec(callback)
+    //   },
+    // }, function(err){
+    //   if (err){return next(err);}
+      db.Article.findByIdAndRemove(req.body.id, function deleteArtilce(err){
         if (err){return next(err);}
-        res.redirect('/');
-      }
-    })
+        res.render('index',{message:'Article Deleted'})
+      })
+    // })
   },
   // Delete the specified headline
   delete: function (req, res) {
