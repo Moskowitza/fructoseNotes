@@ -1,4 +1,3 @@
-
 <div class="container">
     {{message}}
     {{#each articles}}
@@ -9,8 +8,8 @@
             <img src={{this.imgLink}}> {{this.bodyText}}
             <a href="{{this.link}}">Link</a>
             <form action="{{this._id}}" method="POST">
-                <input class="form-control"  type="hidden" name='id' required="true" value={{this._id}}>
-            <button type="submit">Remove Article</button>
+                <input class="form-control" type="hidden" name='id' required="true" value={{this._id}}>
+                <button type="submit">Remove Article</button>
             </form>
         </div>
         <div id="notes" class="col l4">
@@ -19,7 +18,7 @@
             {{this.body}} {{!-- Delete Button needs to be hooked up --}}
             <br>
             <button method='DELETE' action='' class="deleteNote" data-id="{{this.id}}">Remove Note</button>
-            <hr> 
+            <hr>
             {{/each}}
         </div>
         <div id="addNote_{{this._id}}" class="col l4" data-id={{this._id}}>

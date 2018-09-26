@@ -13,7 +13,8 @@ module.exports = {
   // Delete the specified headline
   delete: function (req, res) {
     console.log("remove article " + req.params.id)
-    db.Article.findByIdAndRemove({ _id: req.params.id }).then(function (dbArticle) {
+    db.Article.remove({ _id: req.params.id })
+    .then(function (dbArticle) {
       res.render("index", {message:"Deleted"+req.params.id, articles: dbArticle });
     });
   },
