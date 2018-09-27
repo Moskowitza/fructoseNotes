@@ -5,32 +5,28 @@ module.exports = {
   findAll: function (req, res, next) {
     db.Article
       .find()
+      .populate('note')
       .exec(function (err, dbArticle) {
         if (err) { return next(err); }
-        res.render("index", { articles: dbArticle });
+        console.log(dbArticle)
+        res.render("index", { articles: dbArticle});
       });
   },
-  delete_get: function(req,res,next){
-    async.parallel({
-      article: function(callback){
-        db.Article.findById(req.params.id).populate('note').exec(callback)
-      },
-      function(err,result){
-        if (err){return next(err);}
-        res.render('index',{message:'Delete this article and notes?'})
-      }
-    })
-  },
+  // delete_get: function(req,res,next){
+  //   async.parallel({
+  //     article: function(callback){
+  //       db.Article.findById(req.params.id).populate('note').exec(callback)
+  //     },
+  //     function(err,result){
+  //       if (err){return next(err);}
+  //       res.render('index',{message:'Delete this article and notes?'})
+  //     }
+  //   })
+  // },
   delete_post: function(req,res,next){
-    // async.parallel({
-    //   article: function(callback){
-    //     db.Article.findById(req.params.id).populate('note').exec(callback)
-    //   },
-    // }, function(err){
-    //   if (err){return next(err);}
-      db.Article.findByIdAndRemove(req.body.id, function deleteArtilce(err){
+      db.Article.findByIdAndRemove(req.body.id, function (err, dbArticles){
         if (err){return next(err);}
-        res.render('index',{message:'Article Deleted'})
+        res.redirect("/");
       })
     // })
   },

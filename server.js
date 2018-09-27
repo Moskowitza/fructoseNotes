@@ -33,7 +33,8 @@ var articleRouter=require('./routes/api/articles')
 app.use('/',articleRouter);
 var scrapeRouter=require('./routes/api/scrape')
 app.use('/scrape',scrapeRouter);
-
+var noteRouter=require('./routes/api/notes')
+app.use('/note',noteRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

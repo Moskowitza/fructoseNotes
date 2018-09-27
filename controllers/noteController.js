@@ -12,7 +12,7 @@ module.exports = {
   // Create a new note
   create: function(req, res) {
     db.Note.create(req.body).then(function(dbNote) {
-        res.render("index",{notes:dbNote});
+        res.redirect("/");
     });
   },
   // Delete a note with a given id
