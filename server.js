@@ -9,7 +9,6 @@ var PORT = process.env.PORT || 8080;
 // Initialize Express
 var app = express();
 
-
 // Configure middleware
 
 // Use morgan logger for logging requests
@@ -39,12 +38,12 @@ app.use('/scrape',scrapeRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-// // error handler
+//error handler, 
+//Error-handling middleware always takes FOUR arguments, even if you don't use next. 
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
   res.render('error');
@@ -52,7 +51,6 @@ app.use(function(err, req, res, next) {
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/hiFructose";
-
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
 mongoose.Promise = global.Promise;
