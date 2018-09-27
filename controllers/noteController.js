@@ -11,7 +11,8 @@ module.exports = {
   },
   // Create a new note
   create: function(req, res) {
-    db.Note.create(req.body).then(function(dbNote) {
+    console.log(req.body)
+    db.Note.save(req.body).then(function(dbNote) {
         res.render("index",{notes:dbNote});
     });
   },
