@@ -23,12 +23,16 @@
         </div>
         <div id="addNote_{{this._id}}" class="col l4" data-id={{this._id}}>
             <h6> {{this.title}} </h6>
-            <input id='titleinput_{{this._id}}' name='title' placeholder="Note Title">
-            <textarea id='bodyinput_{{this._id}}' name='body' placeholder="Note Body"></textarea>
-            <button data-id={{this._id}} class="savenote">Save Note</button>
+            <form action="note/newnote/{{this._id}}" method="POST">
+                <input type="hidden" name="article" id="article" required="true" value={{this._id}}>
+                <input id='titleinput_{{this._id}}' name='title' placeholder="Note Title">
+                <textarea id='bodyinput_{{this._id}}' name='body' placeholder="Note Body"></textarea>
+            <button type="submit">Save Note</button>
+            </form>
         </div>
     </div>
-    <hr>
-    {{/each}}
+</div>
+<hr>
+{{/each}}
 </div>
 </div>

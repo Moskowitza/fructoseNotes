@@ -18,7 +18,7 @@ var NoteSchema = new Schema({
     min:3,
     max:100
   },
-  _articelID: [{ type: Schema.ObjectId,ref: "Article" }]
+  article: { type: Schema.Types.ObjectId, ref: "Article" }
 });
 
 // This creates our model from the above schema, using mongoose's model method
