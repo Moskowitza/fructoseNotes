@@ -35,6 +35,7 @@ var scrapeRouter=require('./routes/api/scrape')
 app.use('/scrape',scrapeRouter);
 var noteRouter=require('./routes/api/notes')
 app.use('/note',noteRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
