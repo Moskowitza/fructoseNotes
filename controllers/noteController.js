@@ -37,8 +37,9 @@ module.exports = {
   },
   // Delete a note with a given id
   delete: function (req, res) {
-    db.Note.remove({ _id: req.params.id }).then(function (dbNote) {
-      res.render("index", { notes: dbNote });
-    });
+    res.send("on note delete route");
+    // db.Note.remove({ _id: req.params.id }).then(function (dbNote) {
+    //   res.redirect("/");
+    // });
   }
 };

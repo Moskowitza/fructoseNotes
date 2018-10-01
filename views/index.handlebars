@@ -17,7 +17,9 @@
             <b>{{this.title}}</b>
             {{this.body}} {{!-- Delete Button needs to be hooked up --}}
             <br>
-            <button method='DELETE' action='' class="deleteNote" data-id="{{this.id}}">Remove Note</button>
+            <form='POST' action='note/delete/{{this.id}}'>
+            <button  class="deleteNote" data-id="{{this.id}}">Remove Note</button>
+            </form>
             <hr>
             {{/each}}
         </div>
